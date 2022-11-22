@@ -7,12 +7,14 @@ const cors = require("cors");
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "server", "public")));
 
 const PORT = process.env.PORT || 5500;
 
 app.get("/", (_request, response) => {
-  response.status(200).sendFile(path.join(__dirname, "public", "index.html"));
+  response
+    .status(200)
+    .sendFile(path.join(__dirname, "server", "public", "index.html"));
 });
 
 app.listen(PORT, () => {
