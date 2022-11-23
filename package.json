@@ -16,7 +16,6 @@
     "knex": "^2.3.0",
     "moment": "^2.29.4",
     "mysql": "^2.18.1",
-    "mysql2": "^2.3.3",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
