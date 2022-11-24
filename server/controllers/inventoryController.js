@@ -40,15 +40,18 @@ exports.inventoryItems = (req, res) => {
 };
 
 exports.addInventoryItem = (req, res) => {
-  console.log(req.body.item_name);
   if (
-    (!req.body.item_name || !req.body.description || !req.body.category || !req,
-    body.status || !req.body.quantity || !req.body.warehouse)
+    !req.body.item_name ||
+    !req.body.description ||
+    !req.body.category ||
+    !req.body.status ||
+    !Number.isInteger(req.body.quantity) ||
+    !req.body.warehouse_id
   ) {
     return res
       .status(400)
       .send(
-        "Please make sure to provide inventory_name, description, category, status, quantity and warehouse fields in a request"
+        "Please make sure to provide item_name, description, category, status, quantity and warehouse_id fields in a request"
       );
   }
 
