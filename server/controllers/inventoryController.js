@@ -45,7 +45,7 @@ exports.addInventoryItem = (req, res) => {
     !req.body.description ||
     !req.body.category ||
     !req.body.status ||
-    !Number.isInteger(req.body.quantity) ||
+    !req.body.quantity ||
     !req.body.warehouse_id
   ) {
     return res
