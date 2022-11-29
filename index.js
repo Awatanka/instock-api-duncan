@@ -17,6 +17,12 @@ app.get("/", (_request, response) => {
     .sendFile(path.join(__dirname, "server", "public", "index.html"));
 });
 
+const warehouseRoutes = require("./server/routes/warehouseRoute");
+app.use("/warehouses", warehouseRoutes);
+
+const inventoryRoutes = require("./server/routes/inventoryRoute");
+app.use("/inventories", inventoryRoutes);
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT} 🚀`);
 });
