@@ -1,4 +1,5 @@
 const knex = require("knex")(require("../../knexfile"));
+const { response } = require("express");
 const { v4: uuidv4 } = require("uuid");
 
 exports.index = (_req, res) => {
@@ -74,6 +75,7 @@ exports.addWarehouse = (req, res) => {
 };
 
 exports.updateWarehouse = (req, res) => {
+  console.log(res.data);
   knex("warehouses")
     .update(req.body)
     .where({ id: req.params.id })
